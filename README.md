@@ -1,3 +1,3 @@
 # README
 
-We provide the best deals for bloggers. Give us a STAR. Thank You! ;)
+We provide the best deals for bloggers. Give us a STAR. Thank You!
