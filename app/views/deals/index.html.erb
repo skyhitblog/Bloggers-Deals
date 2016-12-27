@@ -2,33 +2,33 @@
 
 <h1>Deals</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Description</th>
-      <th>Deal</th>
-      <th>Cta</th>
-      <th>Brand</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <% @deals.each do |deal| %>
 
-  <tbody>
-    <% @deals.each do |deal| %>
-      <tr>
-        <td><%= deal.product %></td>
-        <td><%= deal.description %></td>
-        <td><%= deal.deal %></td>
-        <td><%= deal.cta %></td>
-        <td><%= deal.brand %></td>
-        <td><%= link_to 'Show', deal %></td>
-        <td><%= link_to 'Edit', edit_deal_path(deal) %></td>
-        <td><%= link_to 'Destroy', deal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="col">
+    <div class="col-sm-4">
+
+  <div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><%= deal.product %></h4>
+    <h6 class="card-subtitle text-muted"><%= deal.deal%></h6></div>
+  <img src="<%= deal.image_url %>" width="338" height="280" alt="Card image">
+  <div class="card-block">
+    <p class="card-text"><%= deal.description %></p>
+    <a href="<%= deal.cta %>" class="btn btn-success">Redeem offer</a>
+
+    <%= link_to 'View more info.', deal %>
+
+  </div>
+</div>
+
+</div>
+</div>
+
+  <% end %>
+
+
+
+
 
 <br>
 
