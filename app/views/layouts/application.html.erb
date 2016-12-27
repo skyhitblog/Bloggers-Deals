@@ -10,10 +10,24 @@
 
   <body>
 
-    <% Category.all.each do |category| %>
-    <%=  link_to category.name, deals_path(category: category.name) %>
-    <% end %>
+    <%= render 'layouts/nav' %>
 
-    <%= yield %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+
+        <ul class="nav nav-tabs">
+          <% Category.all.each do |category| %>
+
+          <li role="presentation" class="nav-item">
+            <%=  link_to category.name, deals_path(category: category.name), class: "nav-link"%>
+          </li>
+          <% end %>
+        </ul>
+
+        <div class="container">
+
+      <%= yield %>
+    </div>
+
   </body>
 </html>
