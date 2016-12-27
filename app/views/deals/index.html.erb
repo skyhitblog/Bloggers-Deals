@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Deals</h1>
+<br>
 
   <% @deals.each do |deal| %>
-  
+
   <div class="col">
     <div class="col-sm-4">
       <div class="card">
@@ -21,7 +21,3 @@
   </div>
 
   <% end %>
-
-<br>
-
-<%= link_to 'New Deal', new_deal_path %>

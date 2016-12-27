@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Deals</title>
+    <title>Bloggers Deals</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,14 +15,13 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
 
-        <ul class="nav nav-tabs">
-          <% Category.all.each do |category| %>
-
-          <li role="presentation" class="nav-item">
-            <%=  link_to category.name, deals_path(category: category.name), class: "nav-link"%>
-          </li>
-          <% end %>
-        </ul>
+      <ul class="nav nav-tabs">
+        <% Category.all.each do |category| %>
+        <li role="presentation" class="nav-item">
+          <%=  link_to category.name, deals_path(category: category.name), class: "nav-link"%>
+        </li>
+        <% end %>
+      </ul>
 
     <div class="container">
       <%= yield %>
