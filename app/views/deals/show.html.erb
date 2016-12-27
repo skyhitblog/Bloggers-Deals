@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="jumbotron">
+
+  <img src="<%= @deal.image_url %>" width="338" height="280" alt="Card image">
+
+  <br>
+  <br>
+
 <p>
   <strong>Product:</strong>
   <%= @deal.product %>
@@ -16,15 +23,17 @@
 </p>
 
 <p>
-  <strong>Cta:</strong>
-  <%= @deal.cta %>
-</p>
-
-<p>
   <strong>Brand:</strong>
   <%= @deal.brand %>
 </p>
 
+<a href="<%= @deal.cta %>" class="btn btn-success">Redeem offer</a>
+
+<br>
+<br>
 
 <%= link_to 'Edit', edit_deal_path(@deal) %> |
 <%= link_to 'Back', deals_path %>
+
+  </div>
+</div>

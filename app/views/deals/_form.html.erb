@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :product %>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  <div class="form-group">
+    <%= f.label :Category %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :product %>
-    <%= f.text_field :product %>
+    <%= f.text_field :product, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :deal %>
-    <%= f.text_field :deal %>
+    <%= f.text_field :deal, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :cta %>
-    <%= f.text_field :cta %>
+  <div class="form-group">
+    <%= f.label :URL %>
+    <%= f.text_field :cta, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brand %>
-    <%= f.text_field :brand %>
+    <%= f.text_field :brand, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image_url %>
-    <%= f.text_field :image_url %>
+    <%= f.text_field :image_url, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-default" %>
   </div>
 <% end %>
