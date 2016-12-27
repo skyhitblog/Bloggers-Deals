@@ -4,7 +4,12 @@ class DealsController < ApplicationController
   # GET /deals
   # GET /deals.json
   def index
-    @deals = Deal.all
+    if params[:category].blank?
+      @deals = Deal.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @deals = Deal.where(category_id: @category_id).order("created_at DESC")
+    end
   end
 
   # GET /deals/1
@@ -69,6 +74,6 @@ class DealsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def deal_params
-      params.require(:deal).permit(:product, :description, :deal, :cta, :brand)
+      params.require(:deal).permit(:product, :description, :deal, :cta, :brand, :category_id)
     end
 end

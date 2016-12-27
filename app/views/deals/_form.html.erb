@@ -13,6 +13,11 @@
 
   <div class="field">
     <%= f.label :product %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product %>
     <%= f.text_field :product %>
   </div>
 
