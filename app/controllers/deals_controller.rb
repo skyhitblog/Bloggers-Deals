@@ -1,11 +1,14 @@
 class DealsController < ApplicationController
   before_action :set_deal, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
 
   # GET /deals
   # GET /deals.json
   def index
     if params[:category].blank?
       @deals = Deal.all.order("created_at DESC")
+
     else
       @category_id = Category.find_by(name: params[:category]).id
       @deals = Deal.where(category_id: @category_id).order("created_at DESC")
@@ -19,7 +22,7 @@ class DealsController < ApplicationController
 
   # GET /deals/new
   def new
-    @deal = Deal.new
+    @deal = current_user.deals.build
   end
 
   # GET /deals/1/edit
@@ -29,7 +32,7 @@ class DealsController < ApplicationController
   # POST /deals
   # POST /deals.json
   def create
-    @deal = Deal.new(deal_params)
+    @deal = current_user.deals.build(deal_params)
 
     respond_to do |format|
       if @deal.save
@@ -72,8 +75,13 @@ class DealsController < ApplicationController
       @deal = Deal.find(params[:id])
     end
 
+    def authorized_user
+      @deal = current_user.deals.find_by(id: params[:id])
+      redirect_to deals_path, notice: "Not authorized to edit this deal" if @deal.nil?
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def deal_params
-      params.require(:deal).permit(:product, :description, :deal, :cta, :brand, :category_id, :image_url)
+      params.require(:deal).permit(:product, :description, :deal, :cta, :brand, :category_id, :image_url, :user_id)
     end
 end
