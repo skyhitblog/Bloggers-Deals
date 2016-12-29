@@ -10,7 +10,8 @@
         <div class="card-block">
           <h4 class="card-title"><%= deal.product %></h4>
           <h6 class="card-subtitle text-muted"><%= deal.deal%></h6></div>
-          <img src="<%= deal.image_url %>" width="338" height="280" alt="Card image">
+          <img src="<%= deal.image_url %>" alt="Card image", class: "img-responsive">
+
         <div class="card-block">
           <p class="card-text"><%= deal.description %></p>
           <a href="<%= deal.cta %>" class="btn btn-info">Redeem offer</a>
