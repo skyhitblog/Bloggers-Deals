@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css">
 
       <ul class="nav nav-tabs">
+        <li role="presentation" class="nav-item">
+          <%=  link_to 'All Deals', root_path, class: "nav-link"%>
+        </li>
         <% Category.all.each do |category| %>
         <li role="presentation" class="nav-item">
           <%=  link_to category.name, deals_path(category: category.name), class: "nav-link"%>
