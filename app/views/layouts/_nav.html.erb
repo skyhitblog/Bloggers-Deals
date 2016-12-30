@@ -1,16 +1,23 @@
 <nav class="navbar navbar-light bg-faded">
   <ul class="nav navbar-nav navbar-right">
     <li class="nav-item active">
-      <b><a class="nav-link" href="/">BLOGGERS DEALS</a></b>
+      <h3><a class="nav-link" href="/">BLOGGERS DEALS</a></h3>
+
     </li>
+
+  <span class="float-lg-right">
+
     <li class="nav-item">
       <a class="nav-link" href="/pages/about">ABOUT</a>
     </li>
+
     <li class="nav-item">
       <a class="nav-link" href="/pages/contact">CONTACT</a>
     </li>
 
-    <span class="float-lg-right">
+    <li class="nav-item">
+      <a class="nav-link" href="/"> </a>
+    </li>
 
     <% if user_signed_in? %>
 
@@ -28,6 +35,7 @@
   </span>
   </ul>
 </nav>
+
 
 <style>
 .btn:visited {
