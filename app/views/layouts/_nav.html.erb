@@ -22,9 +22,9 @@
     <% if user_signed_in? %>
 
     <li>
-      Signed in as <b><%= current_user.email %></b>
+      <!-- Signed in as <b><%= current_user.email %></b> -->
       <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger btn-mini' %>
-      <%= link_to "Settings", edit_user_registration_path, :class => 'btn btn-primary btn-mini' %>
+      <!-- <%= link_to "Settings", edit_user_registration_path, :class => 'btn btn-primary btn-mini' %> -->
       <% else %>
       <%= link_to new_user_session_path do %>
       <button class="btn btn-info btn-mini">Log in</button>
